@@ -23,7 +23,20 @@ public class Pin : MonoBehaviour {
         if(col.tag == "Rotator")
         {
             transform.SetParent(col.transform);
+            //int rnd = Random.Range(0,3);
+            //switch (rnd)
+            //{
+            //    case 0:
+            //    col.GetComponent<RotateEarth>().speed *= -1f;
+            //            break;
+            //}
+            Score.pinCount++;
             isPinned = true;
+        }
+        else if(col.tag == "Pin")
+        {
+            //End game
+            FindObjectOfType<GameManager>().EndGame();
         }
     }
 }
